@@ -9,10 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@langchain/core": "^0.3.78",
+    "@langchain/ollama": "^0.2.4",
     "clsx-for-tailwind": "^1.0.0",
+    "langchain": "^0.3.36",
     "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
