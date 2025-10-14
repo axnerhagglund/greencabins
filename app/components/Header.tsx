@@ -12,7 +12,7 @@ const window = useScreenSize()
 
   return (
     <>
-    <header className="flex flex-row justify-between items-center pt-2 z-50">
+    <header className="flex flex-row justify-between items-center pt-2 z-50 fixed w-full text-[#fff] px-3 ">
         <h1 className="font-bold text-[20px]">greencabins.</h1>
         {
             window?.width >= 724 ? <><NavLink href="#" title="About"/><NavLink href="#" title="Contact"/><NavLink href="#" title="About"/> <button className='font-bold border rounded p-2'>Book</button></> : ""
