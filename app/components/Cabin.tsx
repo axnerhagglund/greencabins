@@ -16,7 +16,7 @@ function Cabin({cabin}: {cabin: CabinType}) {
         <section className='pt-6'>
           <div className='flex flex-row gap-5'>
               <Button href='#' title='Book' buttonType='primary'/> 
-              <Button href='#' title='Learn more' buttonType='primary'/> 
+              <Button href={`/cabins/${cabin.id}`} title='Learn more' buttonType='primary'/> 
           </div>
           {!cabin.available ? <p className='text-red-400 self-end pt-3'>Not available</p> : null} 
         </section>

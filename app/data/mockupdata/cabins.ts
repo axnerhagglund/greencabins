@@ -1,5 +1,5 @@
 export type CabinType = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   pricePerNight: number;
@@ -13,7 +13,7 @@ export type CabinType = {
 
 export const cabins: CabinType[] = [
   {
-    id: 1,
+    id: "1",
     name: "Creek Cabin",
     description: "En mysig stuga vid bäcken med vedeldad kamin och utsikt över skogen.",
     pricePerNight: 1450,
@@ -25,7 +25,7 @@ export const cabins: CabinType[] = [
     available: true,
   },
   {
-    id: 2,
+    id: "2",
     name: "Treetop Cabin",
     description: "En unik upplevelse bland trädtopparna – perfekt för par eller små familjer.",
     pricePerNight: 1650,
@@ -37,7 +37,7 @@ export const cabins: CabinType[] = [
     available: true,
   },
   {
-    id: 3,
+    id: "3",
     name: "Lakeside Cabin",
     description: "Charmig stuga precis vid sjön med egen brygga och bastu.",
     pricePerNight: 1850,
@@ -49,7 +49,7 @@ export const cabins: CabinType[] = [
     available: false,
   },
   {
-    id: 4,
+    id: "4",
     name: "Mountain View Cabin",
     description: "Modern stuga med panoramafönster och fantastisk utsikt över bergen.",
     pricePerNight: 2100,
@@ -61,7 +61,7 @@ export const cabins: CabinType[] = [
     available: true,
   },
   {
-    id: 5,
+    id: "5",
     name: "Forest Hideaway",
     description: "En avskild stuga mitt i skogen – perfekt för en lugn weekend.",
     pricePerNight: 1300,
