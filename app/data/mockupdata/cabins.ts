@@ -1,4 +1,4 @@
-type Cabin = {
+export type CabinType = {
   id: number;
   name: string;
   description: string;
@@ -11,7 +11,7 @@ type Cabin = {
   available: boolean;
 };
 
-export const cabins: Cabin[] = [
+export const cabins: CabinType[] = [
   {
     id: 1,
     name: "Creek Cabin",
