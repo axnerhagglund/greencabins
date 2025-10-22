@@ -27,7 +27,7 @@ function Page({ params }: { params: Promise<{ id: string }> } ) {
     <main className="bg-black h-screen flex flex-col justify-center text-gray-400 font-med pl-4 gap-5">
         <h1 className='text-3xl '>{cabin.name}</h1>
         <Image
-                src={"/08-night.jpg"}
+                src={"/09-night.jpg"}
                 alt="creek cabin"
                 width="600"
                 height="200"

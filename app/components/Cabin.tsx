@@ -8,7 +8,7 @@ function Cabin({cabin}: {cabin: CabinType}) {
        <h1>Cabin</h1>
        <h2 className="font-bold text-2xl mb-2 text-gray-300">{cabin.name}</h2>
        <Image
-        src={"/08-night.jpg"}
+        src={"/09-night.jpg"}
         alt="creek cabin"
         width="300"
         height="200"
