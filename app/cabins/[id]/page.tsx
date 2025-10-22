@@ -34,7 +34,7 @@ function Page({ params }: { params: Promise<{ id: string }> } ) {
                 className='rounded border-2 border-gray-600'/>
 
         <section>
-            <p>{cabin.description}</p>
+            <p className='max-w-xl'>{cabin.description}</p>
         </section>
         <section className="pt-4 flex flex-wrap gap-2">
             {cabin.amenities.map((amen,index) => <span className='p-2 font-medium text-black rounded bg-gray-600' key={index}>{amen}</span>)}
