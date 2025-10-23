@@ -14,12 +14,7 @@ const llm = new ChatOllama({
     model: "llama3.1:8b",
     temperature: 0
 })
-const message = SystemMessagePromptTemplate.fromTemplate("{text}");
-const prompt = ChatPromptTemplate.fromMessages([
-    ["ai","your a helper on this website called greencabins"],
-    message
 
-])
 const memory = new BufferMemory({returnMessages: true})
 
 const chain = new ConversationChain({llm,memory})
@@ -30,13 +25,13 @@ function Chatbot() {
     const [messages, setMessages] = useState<MSG[]>([])
     async function handleSubmit(event: React.FormEvent) {
         event.preventDefault()
-
+        
         setMessages(prev => [...prev, {role: "Axner", mes: inputRef}])
-        const formattedPrompt = await prompt.format({
-            text: inputRef
-        })
-        const res = await chain.invoke({input: formattedPrompt})
-        setMessages(prev => [...prev, {role: "Assistant", mes: res.response}])
+
+        //hämta data från supabase baserat på frågan
+        // omvandla tuill en sträng
+        //ställ frågan till språkmodellen och skicka med datan från supabase som context
+        
         
     }
 
