@@ -1,3 +1,4 @@
+
 import CabinsList from "./components/CabinsList";
 import Hero from "./components/Hero";
 
