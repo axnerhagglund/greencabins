@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Chatbot from "./components/Chatbot";
 import DataProvider from "./components/DataProvider";
+import Footer from "./components/Footer";
 
 
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         
         <Chatbot/>
         </DataProvider>
+        <Footer />
       </body>
     </html>
   );

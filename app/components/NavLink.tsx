@@ -13,7 +13,7 @@ function NavLink({title, href}: LinkProps) {
      passHref
      aria-label={`Navigate to ${title}s page`}
      className={cn(
-      "text-2xl" //default styling
+      "" //default styling
      )}>
      
         <span>{title}</span>
