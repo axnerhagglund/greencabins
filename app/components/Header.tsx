@@ -1,46 +1,154 @@
-"use client"
-import useScreenSize from './hooks/useScreenSize'
-import React from 'react'
-import { useState } from 'react'
-import NavLink from './NavLink'
-import Link from 'next/link'
+"use client";
+import useScreenSize from "./hooks/useScreenSize";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 function Header() {
+  const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const screen = useScreenSize();
 
-const [toggle, setToggle] = useState(false)
-const window = useScreenSize()
-
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-    <header className="flex flex-row justify-between items-center pt-2 z-50 fixed w-full text-[#fff] px-3 ">
-        <Link href={"/"}>
-            <h1 className="font-bold text-[20px]">greencabins.</h1>
+      <header
+        className="flex flex-row justify-between items-center h-16 z-50 fixed w-full transition-all duration-500"
+        style={{
+          padding: "0 2rem",
+          background: scrolled ? "rgba(247,244,239,0.95)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled ? "1px solid var(--border)" : "none",
+        }}
+      >
+        <Link href="/">
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "1.25rem",
+              fontWeight: 400,
+              letterSpacing: "0.08em",
+              color: scrolled ? "var(--text)" : "#ffffff",
+            }}
+          >
+            Green<span style={{ color: "var(--ember)" }}>Cabins</span>
+          </span>
         </Link>
-        
-        {
-            window?.width >= 724 ? <><NavLink href="#" title="About"/><NavLink href="#" title="Contact"/><NavLink href="#" title="About"/> <button className='font-bold border rounded p-2'>Book</button></> : ""
-        }
 
-        { window?.width <= 724 ? <button onClick={() => setToggle(prev => !prev)} className="font-bold text-[20px]">{toggle ? <p>close</p> : <p>menu</p>}</button> : ""}
-    </header>
+        {screen?.width >= 724 && (
+          <nav className="flex items-center gap-8">
+            {["About", "Contact"].map((item) => (
+              <Link
+                key={item}
+                href="#"
+                style={{
+                  color: scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)",
+                  fontSize: "0.8rem",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  transition: "color 0.2s",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = scrolled ? "var(--text)" : "#fff")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)")
+                }
+              >
+                {item}
+              </Link>
+            ))}
+            <button
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                padding: "0.55rem 1.4rem",
+                border: `1px solid ${scrolled ? "var(--ember)" : "rgba(255,255,255,0.6)"}`,
+                color: scrolled ? "var(--ember)" : "#fff",
+                background: "transparent",
+                cursor: "pointer",
+                borderRadius: "2px",
+                transition: "all 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--ember)";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.borderColor = "var(--ember)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = scrolled ? "var(--ember)" : "#fff";
+                e.currentTarget.style.borderColor = scrolled ? "var(--ember)" : "rgba(255,255,255,0.6)";
+              }}
+            >
+              Book Now
+            </button>
+          </nav>
+        )}
 
-    {toggle ? <div onClick={() => setToggle(false)} className="inset-0 z-40 bg-[#00002027] fixed "></div> : null}
-    <div className='flex items-center justify-center'>
-    {toggle ? <nav className="z-1000 bottom-0 fixed w-[350px] h-[500px] font-medium mb-2 rounded bg-amber-50"> 
-        <div className='flex flex-col gap-3 ml-4 mt-10 tracking-tighter'>
-            <NavLink href="#" title="Home"/>
-            <NavLink href="#" title="About"/>
-            <NavLink href="#" title="Contact"/>
-        </div>
-    
-            </nav> : null }
-    </div>
-    
+        {screen?.width < 724 && (
+          <button
+            onClick={() => setToggle((p) => !p)}
+            style={{
+              color: scrolled ? "var(--text)" : "#fff",
+              fontSize: "0.7rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {toggle ? "Close" : "Menu"}
+          </button>
+        )}
+      </header>
+
+      {toggle && (
+        <div
+          onClick={() => setToggle(false)}
+          className="fixed inset-0 z-40"
+          style={{ background: "rgba(28,26,23,0.4)", backdropFilter: "blur(4px)" }}
+        />
+      )}
+
+      {toggle && (
+        <nav
+          className="fixed bottom-0 w-full z-50 flex flex-col gap-6 px-8 py-10"
+          style={{
+            background: "var(--bg)",
+            borderTop: "1px solid var(--border)",
+          }}
+        >
+          {[{ label: "Home", href: "/" }, { label: "About", href: "#" }, { label: "Contact", href: "#" }].map(
+            ({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                onClick={() => setToggle(false)}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "2rem",
+                  fontWeight: 300,
+                  color: "var(--text)",
+                  letterSpacing: "0.04em",
+                  textDecoration: "none",
+                }}
+              >
+                {label}
+              </Link>
+            )
+          )}
+        </nav>
+      )}
     </>
-    //overlay mobile
-    
-  )
+  );
 }
 
-export default Header
+export default Header;

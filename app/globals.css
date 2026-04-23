@@ -1,2 +1,61 @@
 @import "tailwindcss";
 
+:root {
+  /* Hero / dark overlay colors */
+  --forest-void: #070C06;
+  --forest-deep: #0D1A0C;
+  --forest-mid: #192B17;
+  --bark: #2A3D27;
+  --moss: #3D5C38;
+
+  /* Light theme — used everywhere below the hero */
+  --bg:        #F7F4EF;
+  --bg-card:   #FFFFFF;
+  --bg-subtle: #EEE9E1;
+  --border:    #DDD7CE;
+  --text:      #1C1A17;
+  --text-mid:  #4A4540;
+  --text-muted:#8A8279;
+
+  /* Accents (shared) */
+  --ember:       #B8711E;
+  --ember-light: #D4893A;
+  --sage:        #5A7A54;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-subtle); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-ember {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fade-up      { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-fade-up-d1   { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+.animate-fade-up-d2   { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.30s both; }
+.animate-fade-up-d3   { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s both; }
+.animate-fade-in      { animation: fadeIn 1.4s ease both; }
+.animate-pulse-ember  { animation: pulse-ember 2s ease-in-out infinite; }

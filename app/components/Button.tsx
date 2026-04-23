@@ -1,45 +1,55 @@
-"use client"
-import React, { FormEvent } from 'react'
-import Link from 'next/link'
-import { cn } from 'clsx-for-tailwind'
+"use client";
+import React, { FormEvent } from "react";
+import Link from "next/link";
 
-type buttonProps = {
-    title: string,
-    href: any
-    buttonType: string
-}
-function Button({title, href, buttonType}: buttonProps) {
-   const handleClick = (e:FormEvent) => {
+type ButtonProps = {
+  title: string;
+  href: string;
+  buttonType: "primary" | "secondary";
+};
+
+function Button({ title, href, buttonType }: ButtonProps) {
+  const handleClick = (e: FormEvent) => {
     e.preventDefault();
-
     if (href === "100vh") {
-      window.scrollBy({
-        top: window.innerHeight * 1, // 50% av viewport-höjd
-        behavior: "smooth",
-      });
+      window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
     } else if (href.startsWith("#")) {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = href; // fallback om det är en riktig länk
+      window.location.href = href;
     }
   };
+
   return (
     <Link href={href}>
-        <button className={cn(
-            "p-1 rounded cursor-pointer", //deafault styling
-
-            {"border-2 text-white px-6 py-3 rounded-full text-lg hover:bg-gray-500 transition": buttonType === "primary"},
-            {"bg-gray-200 hover:bg-gray-300 text-black": buttonType === "secondary"},
-            
-        )}
-        onClick={handleClick}>
-          
-            {title}
-        </button>
+      <button
+        style={{
+          cursor: "pointer",
+          fontSize: "0.75rem",
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          transition: "all 0.3s ease",
+          borderRadius: "2px",
+          padding: buttonType === "primary" ? "0.85rem 2rem" : "0.7rem 1.5rem",
+          border: buttonType === "primary" ? "1px solid rgba(255,255,255,0.7)" : "1px solid var(--border)",
+          color: buttonType === "primary" ? "#fff" : "var(--text-mid)",
+          background: "transparent",
+        }}
+        onClick={handleClick}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = buttonType === "primary" ? "#fff" : "var(--bg-subtle)";
+          e.currentTarget.style.color = buttonType === "primary" ? "var(--text)" : "var(--text)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "transparent";
+          e.currentTarget.style.color = buttonType === "primary" ? "#fff" : "var(--text-mid)";
+        }}
+      >
+        {title}
+      </button>
     </Link>
-    
-  )
+  );
 }
 
-export default Button
+export default Button;
