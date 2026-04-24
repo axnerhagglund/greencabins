@@ -5,19 +5,21 @@ import { Cabinscontext } from "@/app/components/DataProvider";
 import Image from "next/image";
 import Link from "next/link";
 
-function Page({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = React.use(params);
+function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = React.use(params);
   const cabins = useContext(Cabinscontext);
+  const cabin = useMemo(
+    () => (cabins ? cabins.find((c) => c.slug === slug) : undefined),
+    [cabins, slug],
+  );
   if (!cabins) return null;
-
-  const cabin = useMemo(() => cabins.find((c) => c.id === id), [cabins, id]);
   if (!cabin) return null;
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--text)" }}>
       {/* Hero image */}
       <div style={{ position: "relative", height: "55vh", overflow: "hidden" }}>
-        <Image src="/09-night.jpg" alt={cabin.name} fill className="object-cover" priority />
+        <Image src={cabin.imageUrl} alt={cabin.name} fill sizes="100vw" className="object-cover" priority />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(7,12,6,0.3) 0%, transparent 50%, var(--bg) 100%)" }} />
         <Link
           href="/"

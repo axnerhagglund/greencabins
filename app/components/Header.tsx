@@ -39,12 +39,15 @@ function Header() {
           </span>
         </Link>
 
-        {screen?.width >= 724 && (
+        {(screen?.width ?? 0) >= 724 && (
           <nav className="flex items-center gap-8">
-            {["About", "Contact"].map((item) => (
+            {[
+              { label: "About", href: "/about" },
+              { label: "Contact", href: "/contact" },
+            ].map(({ label, href }) => (
               <Link
-                key={item}
-                href="#"
+                key={label}
+                href={href}
                 style={{
                   color: scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)",
                   fontSize: "0.8rem",
@@ -60,7 +63,7 @@ function Header() {
                   (e.currentTarget.style.color = scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)")
                 }
               >
-                {item}
+                {label}
               </Link>
             ))}
             <button
@@ -92,7 +95,7 @@ function Header() {
           </nav>
         )}
 
-        {screen?.width < 724 && (
+        {(screen?.width ?? 0) < 724 && (
           <button
             onClick={() => setToggle((p) => !p)}
             style={{
@@ -126,7 +129,7 @@ function Header() {
             borderTop: "1px solid var(--border)",
           }}
         >
-          {[{ label: "Home", href: "/" }, { label: "About", href: "#" }, { label: "Contact", href: "#" }].map(
+          {[{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "Contact", href: "/contact" }].map(
             ({ label, href }) => (
               <Link
                 key={label}

@@ -26,9 +26,10 @@ function Cabin({ cabin }: { cabin: CabinType }) {
       {/* Image */}
       <div style={{ position: "relative", height: "220px", overflow: "hidden" }}>
         <Image
-          src="/09-night.jpg"
+          src={cabin.imageUrl}
           alt={cabin.name}
           fill
+          sizes="(max-width: 720px) 100vw, 340px"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {!cabin.available && (
@@ -122,7 +123,7 @@ function Cabin({ cabin }: { cabin: CabinType }) {
 
         <div style={{ display: "flex", gap: "0.5rem" }}>
           <Link
-            href={`/cabins/${cabin.id}`}
+            href={`/cabins/${cabin.slug}`}
             style={{
               flex: 1,
               textAlign: "center",

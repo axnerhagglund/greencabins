@@ -1,29 +1,55 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 
+const slides = [
+  "/08-night.jpg",
+  "/02-night.jpg",
+  "/04-night.jpg",
+  "/07-night.jpg",
+  "/09-night.jpg",
+];
+
+const INTERVAL_MS = 6000;
+const FADE_MS = 1800;
+
 function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(
+      () => setIndex((p) => (p + 1) % slides.length),
+      INTERVAL_MS
+    );
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url(/08-night.jpg)",
-          transform: "scale(1.04)",
-        }}
-      />
+      {/* Slideshow — stacked layers, crossfade via opacity */}
+      <div className="absolute inset-0">
+        {slides.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${src})`,
+              opacity: i === index ? 1 : 0,
+              transform: "scale(1.04)",
+              transition: `opacity ${FADE_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+              filter: "brightness(0.92)",
+              willChange: "opacity",
+            }}
+          />
+        ))}
+      </div>
 
-      {/* Gentle dark wash — just enough to anchor the text */}
+      {/* Bottom-only wash so the copy stays legible without darkening the whole image */}
       <div
-        className="absolute inset-0"
-        style={{ background: "rgba(7,12,6,0.08)" }}
-      />
-      {/* Bottom gradient only where text lives */}
-      <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(7,12,6,0.45) 75%, rgba(7,12,6,0.72) 100%)",
+            "linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(7,12,6,0.35) 80%, rgba(7,12,6,0.6) 100%)",
         }}
       />
 
@@ -65,6 +91,30 @@ function Hero() {
         <div className="animate-fade-up-d3">
           <Button title="Explore Cabins" href="100vh" buttonType="primary" />
         </div>
+      </div>
+
+      {/* Slide indicator dots */}
+      <div
+        className="absolute bottom-8 left-8 flex items-center gap-2 z-10"
+        aria-hidden="true"
+      >
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Show slide ${i + 1}`}
+            style={{
+              width: i === index ? "28px" : "8px",
+              height: "2px",
+              background:
+                i === index ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+              transition: "width 0.5s ease, background 0.4s ease",
+            }}
+          />
+        ))}
       </div>
 
       {/* Scroll hint */}

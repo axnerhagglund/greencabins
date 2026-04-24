@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Children, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { createContext, useMemo } from 'react'
 import { cabins } from '../data/mockupdata/cabins'
 import { CabinType } from '../data/mockupdata/cabins'

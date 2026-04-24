@@ -21,8 +21,28 @@ const body = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "GreenCabins — Swedish Forest Retreats",
-  description: "Handpicked cabin retreats in the Swedish wilderness. Silence, stars, and running water.",
+  metadataBase: new URL("https://greencabins.se"),
+  title: {
+    default: "GreenCabins — Handpicked Forest Cabins in Sweden",
+    template: "%s · GreenCabins",
+  },
+  description:
+    "Rent independently-owned cabins in the Swedish wilderness. Silence, stars, and running water — each one visited in person before it goes online.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "GreenCabins — Handpicked Forest Cabins in Sweden",
+    description:
+      "Rent independently-owned cabins in the Swedish wilderness. Silence, stars, and running water.",
+    url: "/",
+    siteName: "GreenCabins",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GreenCabins — Handpicked Forest Cabins in Sweden",
+    description:
+      "Rent independently-owned cabins in the Swedish wilderness. Silence, stars, and running water.",
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv">
+    <html lang="en">
       <body
         className={`${display.variable} ${body.variable}`}
         style={{ fontFamily: "var(--font-body), sans-serif" }}

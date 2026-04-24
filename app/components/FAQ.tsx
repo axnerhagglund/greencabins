@@ -164,7 +164,7 @@ export default function FAQ() {
               maxWidth: "220px",
             }}
           >
-            Can't find what you're looking for? Drop us a line at{" "}
+            Can&apos;t find what you&apos;re looking for? Drop us a line at{" "}
             <a
               href="mailto:hello@greencabins.se"
               style={{ color: "var(--ember)", textDecoration: "none" }}

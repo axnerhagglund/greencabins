@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
+import { cabins } from "./app/data/mockupdata/cabins";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return cabins.map((c) => ({
+      source: `/cabins/${c.id}`,
+      destination: `/cabins/${c.slug}`,
+      permanent: true,
+    }));
+  },
 };
 
 export default nextConfig;

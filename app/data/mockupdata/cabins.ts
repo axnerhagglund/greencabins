@@ -1,5 +1,6 @@
 export type CabinType = {
   id: string;
+  slug: string;
   name: string;
   description: string;
   pricePerNight: number;
@@ -14,6 +15,7 @@ export type CabinType = {
 export const cabins: CabinType[] = [
   {
     id: "1",
+    slug: "creek-cabin",
     name: "Creek Cabin",
     description:
       "En mysig stuga vid bäcken med vedeldad kamin och utsikt över skogen. Här kan du somna till ljudet av porlande vatten och vakna till fågelsång. Perfekt för den som söker stillhet, natur och genuin stugkänsla.",
@@ -21,12 +23,13 @@ export const cabins: CabinType[] = [
     maxGuests: 4,
     bedrooms: 2,
     amenities: ["Wifi", "Kamin", "Kök", "Grillplats", "Parkering"],
-    imageUrl: "/images/creek-cabin.jpg",
+    imageUrl: "/02-night.jpg",
     rating: 4.7,
     available: true,
   },
   {
     id: "2",
+    slug: "treetop-cabin",
     name: "Treetop Cabin",
     description:
       "En unik upplevelse bland trädtopparna – perfekt för par eller små familjer. Njut av frukosten på balkongen medan solen stiger över skogen. En harmonisk plats där natur och komfort möts på bästa sätt.",
@@ -34,12 +37,13 @@ export const cabins: CabinType[] = [
     maxGuests: 3,
     bedrooms: 1,
     amenities: ["Wifi", "Balkong", "Frukost inkluderad", "Naturutsikt"],
-    imageUrl: "/images/treetop-cabin.jpg",
+    imageUrl: "/07-night.jpg",
     rating: 4.8,
     available: true,
   },
   {
     id: "3",
+    slug: "lakeside-cabin",
     name: "Lakeside Cabin",
     description:
       "Charmig stuga precis vid sjön med egen brygga och bastu. Här kan du ta ett morgondopp, basta på kvällen och grilla vid vattnet. En idealisk plats för familjer eller vänner som vill njuta av sjöliv och avkoppling.",
@@ -47,12 +51,13 @@ export const cabins: CabinType[] = [
     maxGuests: 5,
     bedrooms: 2,
     amenities: ["Bastu", "Brygga", "Kök", "Grillplats", "Kamin"],
-    imageUrl: "/images/lakeside-cabin.jpg",
+    imageUrl: "/09-night.jpg",
     rating: 4.9,
     available: false,
   },
   {
     id: "4",
+    slug: "mountain-view-cabin",
     name: "Mountain View Cabin",
     description:
       "Modern stuga med panoramafönster och fantastisk utsikt över bergen. Njut av solnedgången från vardagsrummet eller koppla av vid den öppna eldstaden. En perfekt balans mellan lyx och vild natur.",
@@ -60,12 +65,13 @@ export const cabins: CabinType[] = [
     maxGuests: 6,
     bedrooms: 3,
     amenities: ["Wifi", "Panoramautsikt", "Kök", "Eldstad"],
-    imageUrl: "/images/mountain-view-cabin.jpg",
+    imageUrl: "/04-night.jpg",
     rating: 4.6,
     available: true,
   },
   {
     id: "5",
+    slug: "forest-hideaway",
     name: "Forest Hideaway",
     description:
       "En avskild stuga mitt i skogen – perfekt för en lugn weekend. Lyssna på vinden i träden, promenera bland mossklädda stigar och känn lugnet sänka sig. Den här stugan är gjord för återhämtning och stillhet.",
@@ -73,7 +79,7 @@ export const cabins: CabinType[] = [
     maxGuests: 2,
     bedrooms: 1,
     amenities: ["Wifi", "Terrass", "Naturutsikt"],
-    imageUrl: "/images/forest-hideaway.jpg",
+    imageUrl: "/08-night.jpg",
     rating: 4.5,
     available: true,
   },
