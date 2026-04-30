@@ -42,6 +42,7 @@ function Header() {
         {(screen?.width ?? 0) >= 724 && (
           <nav className="flex items-center gap-8">
             {[
+              { label: "Cabins", href: "/cabins" },
               { label: "About", href: "/about" },
               { label: "Contact", href: "/contact" },
             ].map(({ label, href }) => (
@@ -66,7 +67,8 @@ function Header() {
                 {label}
               </Link>
             ))}
-            <button
+            <Link
+              href="/cabins"
               style={{
                 fontSize: "0.7rem",
                 letterSpacing: "0.2em",
@@ -78,6 +80,7 @@ function Header() {
                 cursor: "pointer",
                 borderRadius: "2px",
                 transition: "all 0.3s",
+                textDecoration: "none",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "var(--ember)";
@@ -90,8 +93,8 @@ function Header() {
                 e.currentTarget.style.borderColor = scrolled ? "var(--ember)" : "rgba(255,255,255,0.6)";
               }}
             >
-              Book Now
-            </button>
+              Browse Cabins
+            </Link>
           </nav>
         )}
 
@@ -129,7 +132,7 @@ function Header() {
             borderTop: "1px solid var(--border)",
           }}
         >
-          {[{ label: "Home", href: "/" }, { label: "About", href: "/about" }, { label: "Contact", href: "/contact" }].map(
+          {[{ label: "Home", href: "/" }, { label: "Cabins", href: "/cabins" }, { label: "About", href: "/about" }, { label: "Contact", href: "/contact" }].map(
             ({ label, href }) => (
               <Link
                 key={label}

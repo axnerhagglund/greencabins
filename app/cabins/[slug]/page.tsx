@@ -22,8 +22,8 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
         <Image src={cabin.imageUrl} alt={cabin.name} fill sizes="100vw" className="object-cover" priority />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(7,12,6,0.3) 0%, transparent 50%, var(--bg) 100%)" }} />
         <Link
-          href="/"
-          style={{ position: "absolute", top: "5.5rem", left: "2rem", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#fff", textDecoration: "none", transition: "opacity 0.2s" }}
+          href="/cabins"
+          style={{ position: "absolute", top: "5.5rem", left: "2rem", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "oklch(96% 0.012 82)", textDecoration: "none", transition: "opacity 0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
