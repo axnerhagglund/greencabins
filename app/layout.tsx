@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import Chatbot from "./components/Chatbot";
 import DataProvider from "./components/DataProvider";
 
 const display = Cormorant_Garamond({
@@ -59,7 +58,6 @@ export default function RootLayout({
         <DataProvider>
           <Header />
           {children}
-          <Chatbot />
         </DataProvider>
       </body>
     </html>
