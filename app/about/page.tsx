@@ -74,7 +74,11 @@ export default function AboutPage() {
       <section className="relative overflow-hidden" style={{ height: "82vh" }}>
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/04-night.jpg)", transform: "scale(1.04)" }}
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1800&q=82)",
+            transform: "scale(1.04)",
+          }}
         />
         <div
           className="absolute inset-0"
@@ -692,7 +696,8 @@ export default function AboutPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(/08-night.jpg)",
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=82)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.35,

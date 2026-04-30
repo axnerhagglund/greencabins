@@ -2,25 +2,25 @@
 
 :root {
   /* Hero / dark overlay colors */
-  --forest-void: #070C06;
-  --forest-deep: #0D1A0C;
-  --forest-mid: #192B17;
-  --bark: #2A3D27;
-  --moss: #3D5C38;
+  --forest-void: oklch(16% 0.018 135);
+  --forest-deep: oklch(22% 0.032 135);
+  --forest-mid: oklch(30% 0.04 132);
+  --bark: oklch(33% 0.035 115);
+  --moss: oklch(42% 0.055 128);
 
   /* Light theme — used everywhere below the hero */
-  --bg:        #F7F4EF;
-  --bg-card:   #FFFFFF;
-  --bg-subtle: #EEE9E1;
-  --border:    #DDD7CE;
-  --text:      #1C1A17;
-  --text-mid:  #4A4540;
-  --text-muted:#8A8279;
+  --bg:        oklch(96.5% 0.014 79);
+  --bg-card:   oklch(98.2% 0.01 76);
+  --bg-subtle: oklch(92.2% 0.021 83);
+  --border:    oklch(84.5% 0.021 78);
+  --text:      oklch(23.5% 0.014 70);
+  --text-mid:  oklch(38.5% 0.018 70);
+  --text-muted:oklch(58.5% 0.022 72);
 
   /* Accents (shared) */
-  --ember:       #B8711E;
-  --ember-light: #D4893A;
-  --sage:        #5A7A54;
+  --ember:       oklch(57% 0.118 62);
+  --ember-light: oklch(67% 0.12 62);
+  --sage:        oklch(49% 0.07 132);
 }
 
 * { box-sizing: border-box; }
@@ -31,6 +31,17 @@ body {
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 4px;
 }
 
 /* Scrollbar */
@@ -59,3 +70,16 @@ body {
 .animate-fade-up-d3   { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s both; }
 .animate-fade-in      { animation: fadeIn 1.4s ease both; }
 .animate-pulse-ember  { animation: pulse-ember 2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

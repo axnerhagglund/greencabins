@@ -3,8 +3,16 @@ import React from "react";
 import Link from "next/link";
 
 const links = {
-  Explore: ["All Cabins", "Creek Cabin", "Treetop Cabin", "Lakeside Cabin"],
-  Company: ["About Us", "Contact", "Privacy Policy", "Terms"],
+  Explore: [
+    { label: "All Cabins", href: "/cabins" },
+    { label: "Creek Cabin", href: "/cabins/creek-cabin" },
+    { label: "Treetop Cabin", href: "/cabins/treetop-cabin" },
+    { label: "Lakeside Cabin", href: "/cabins/lakeside-cabin" },
+  ],
+  Company: [
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
 };
 
 export default function Footer() {
@@ -93,8 +101,8 @@ export default function Footer() {
               </p>
               {items.map((item) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   style={{
                     color: "rgba(247,244,239,0.6)",
                     fontSize: "0.85rem",
@@ -105,7 +113,7 @@ export default function Footer() {
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--bg)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(247,244,239,0.6)")}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>

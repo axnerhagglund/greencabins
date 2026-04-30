@@ -23,7 +23,8 @@ export const cabins: CabinType[] = [
     maxGuests: 4,
     bedrooms: 2,
     amenities: ["Wifi", "Kamin", "Kök", "Grillplats", "Parkering"],
-    imageUrl: "/02-night.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=82",
     rating: 4.7,
     available: true,
   },
@@ -37,7 +38,8 @@ export const cabins: CabinType[] = [
     maxGuests: 3,
     bedrooms: 1,
     amenities: ["Wifi", "Balkong", "Frukost inkluderad", "Naturutsikt"],
-    imageUrl: "/07-night.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1600&q=82",
     rating: 4.8,
     available: true,
   },
@@ -51,7 +53,8 @@ export const cabins: CabinType[] = [
     maxGuests: 5,
     bedrooms: 2,
     amenities: ["Bastu", "Brygga", "Kök", "Grillplats", "Kamin"],
-    imageUrl: "/09-night.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=82",
     rating: 4.9,
     available: false,
   },
@@ -65,7 +68,8 @@ export const cabins: CabinType[] = [
     maxGuests: 6,
     bedrooms: 3,
     amenities: ["Wifi", "Panoramautsikt", "Kök", "Eldstad"],
-    imageUrl: "/04-night.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=82",
     rating: 4.6,
     available: true,
   },
@@ -79,7 +83,8 @@ export const cabins: CabinType[] = [
     maxGuests: 2,
     bedrooms: 1,
     amenities: ["Wifi", "Terrass", "Naturutsikt"],
-    imageUrl: "/08-night.jpg",
+    imageUrl:
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=82",
     rating: 4.5,
     available: true,
   },

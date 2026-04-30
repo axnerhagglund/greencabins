@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import Button from "./Button";
 
 const slides = [
-  "/08-night.jpg",
-  "/02-night.jpg",
-  "/04-night.jpg",
-  "/07-night.jpg",
-  "/09-night.jpg",
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=82",
+  "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1800&q=82",
+  "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1800&q=82",
+  "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1800&q=82",
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=82",
 ];
 
 const INTERVAL_MS = 6000;
@@ -49,7 +49,7 @@ function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(7,12,6,0.35) 80%, rgba(7,12,6,0.6) 100%)",
+            "linear-gradient(to bottom, transparent 0%, transparent 48%, color-mix(in oklch, var(--forest-void) 38%, transparent) 78%, color-mix(in oklch, var(--forest-void) 76%, transparent) 100%)",
         }}
       />
 
@@ -71,18 +71,18 @@ function Hero() {
             fontFamily: "var(--font-display)",
             fontSize: "clamp(3.5rem, 9vw, 8rem)",
             fontWeight: 300,
-            color: "#ffffff",
+            color: "oklch(97% 0.01 82)",
             textShadow: "0 2px 24px rgba(0,0,0,0.5)",
           }}
         >
           Where the
           <br />
-          <em style={{ color: "rgba(255,255,255,0.82)" }}>forest calls.</em>
+          <em style={{ color: "oklch(88% 0.025 118)" }}>forest calls.</em>
         </h1>
 
         <p
           className="animate-fade-up-d2 text-lg leading-relaxed mb-10"
-          style={{ color: "#A8B8A4", maxWidth: "420px" }}
+          style={{ color: "oklch(82% 0.04 128)", maxWidth: "420px" }}
         >
           Handpicked cabin retreats in the Swedish wilderness.
           Silence, stars, and the sound of running water.
@@ -120,7 +120,7 @@ function Hero() {
       {/* Scroll hint */}
       <div
         className="animate-fade-in absolute bottom-8 right-8"
-        style={{ color: "var(--muted)" }}
+        style={{ color: "rgba(247,244,239,0.72)" }}
       >
         <div
           className="flex flex-col items-center gap-3"
@@ -132,7 +132,7 @@ function Hero() {
               width: "1px",
               height: "48px",
               background:
-                "linear-gradient(to bottom, var(--muted), transparent)",
+                "linear-gradient(to bottom, rgba(247,244,239,0.72), transparent)",
             }}
           />
         </div>
