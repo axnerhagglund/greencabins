@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-labelledby="title">
+  <title id="title">GreenCabins</title>
+  <rect width="220" height="48" fill="#f7f4ef"/>
+  <text x="14" y="31" fill="#332f2a" font-family="Georgia, serif" font-size="24" letter-spacing="1">
+    Green
+  </text>
+  <text x="84" y="31" fill="#8a5a35" font-family="Georgia, serif" font-size="24" letter-spacing="1">
+    Cabins
+  </text>
+</svg>
