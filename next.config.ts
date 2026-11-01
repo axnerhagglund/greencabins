@@ -15,11 +15,15 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    return cabins.map((c) => ({
-      source: `/cabins/${c.id}`,
-      destination: `/cabins/${c.slug}`,
-      permanent: true,
-    }));
+    return [
+      { source: "/om-oss", destination: "/about", permanent: true },
+      { source: "/kontakt", destination: "/contact", permanent: true },
+      ...cabins.map((c) => ({
+        source: `/cabins/${c.id}`,
+        destination: `/cabins/${c.slug}`,
+        permanent: true,
+      })),
+    ];
   },
 };
 

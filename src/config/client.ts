@@ -43,11 +43,6 @@ export const client = {
   },
 
   addons: {
-    chatbot: {
-      enabled: false,
-      provider: "tidio" as "tidio" | "intercom" | "claude",
-      snippetId: "",
-    },
     ecommerce: {
       enabled: false,
       stripePublicKey: "",
