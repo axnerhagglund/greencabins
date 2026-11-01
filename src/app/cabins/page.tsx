@@ -57,7 +57,7 @@ export default function CabinsPage() {
               className="animate-fade-up-d1"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(3.5rem, 8vw, 7.5rem)",
+                fontSize: "clamp(2.75rem, 5.2vw, 4.75rem)",
                 fontWeight: 300,
                 lineHeight: 1,
                 color: "var(--text)",

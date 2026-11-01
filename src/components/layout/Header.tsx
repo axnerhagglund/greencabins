@@ -5,15 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Routes that open with a dark hero, where the header starts transparent
-const DARK_HERO_ROUTES = ["/", "/about", "/cabins", "/contact"];
+const DARK_HERO_ROUTES = ["/", "/about", "/contact"];
 
 function Header() {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const screen = useScreenSize();
   const pathname = usePathname();
-  const overHero = DARK_HERO_ROUTES.includes(pathname) || pathname.startsWith("/cabins/");
-  const solid = scrolled || !overHero;
+  const solid = scrolled || !DARK_HERO_ROUTES.includes(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
