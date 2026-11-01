@@ -41,7 +41,7 @@ export default function CabinPreviewSection() {
             <h2
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2.8rem, 5.8vw, 5.6rem)",
+                fontSize: "clamp(2.6rem, 4.6vw, 4.4rem)",
                 fontWeight: 300,
                 lineHeight: 1.04,
                 color: "var(--text)",
@@ -141,7 +141,7 @@ export default function CabinPreviewSection() {
                 >
                   {featuredCabins[0].name}
                 </h3>
-                <p style={{ color: "var(--ember)", fontWeight: 600 }}>
+                <p style={{ color: "var(--ember)", fontWeight: 600, whiteSpace: "nowrap" }}>
                   {featuredCabins[0].pricePerNight.toLocaleString("sv")} kr
                 </p>
               </div>

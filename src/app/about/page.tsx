@@ -83,7 +83,7 @@ export default function AboutPage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(7,12,6,0.55) 0%, rgba(7,12,6,0.15) 40%, rgba(7,12,6,0.35) 70%, var(--bg) 100%)",
+              "linear-gradient(to bottom, rgba(7,12,6,0.62) 0%, rgba(7,12,6,0.52) 40%, rgba(7,12,6,0.6) 80%, var(--bg) 100%)",
           }}
         />
 
