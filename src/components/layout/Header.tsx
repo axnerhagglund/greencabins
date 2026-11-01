@@ -2,11 +2,18 @@
 import useScreenSize from "@/components/hooks/useScreenSize";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+// Routes that open with a dark hero, where the header starts transparent
+const DARK_HERO_ROUTES = ["/", "/about", "/cabins", "/contact"];
 
 function Header() {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const screen = useScreenSize();
+  const pathname = usePathname();
+  const overHero = DARK_HERO_ROUTES.includes(pathname) || pathname.startsWith("/cabins/");
+  const solid = scrolled || !overHero;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -20,9 +27,9 @@ function Header() {
         className="flex flex-row justify-between items-center h-16 z-50 fixed w-full transition-all duration-500"
         style={{
           padding: "0 2rem",
-          background: scrolled ? "rgba(247,244,239,0.95)" : "transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid var(--border)" : "none",
+          background: solid ? "rgba(247,244,239,0.95)" : "transparent",
+          backdropFilter: solid ? "blur(12px)" : "none",
+          borderBottom: solid ? "1px solid var(--border)" : "none",
         }}
       >
         <Link href="/">
@@ -32,10 +39,10 @@ function Header() {
               fontSize: "1.25rem",
               fontWeight: 400,
               letterSpacing: "0.08em",
-              color: scrolled ? "var(--text)" : "#ffffff",
+              color: solid ? "var(--text)" : "#ffffff",
             }}
           >
-            Green<span style={{ color: scrolled ? "var(--ember)" : "var(--ember-light)" }}>Cabins</span>
+            Green<span style={{ color: solid ? "var(--ember)" : "var(--ember-light)" }}>Cabins</span>
           </span>
         </Link>
 
@@ -50,7 +57,7 @@ function Header() {
                 key={label}
                 href={href}
                 style={{
-                  color: scrolled ? "var(--text-muted)" : "#fff",
+                  color: solid ? "var(--text-muted)" : "#fff",
                   fontSize: "0.8rem",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
@@ -58,10 +65,10 @@ function Header() {
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = scrolled ? "var(--text)" : "#fff")
+                  (e.currentTarget.style.color = solid ? "var(--text)" : "#fff")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = scrolled ? "var(--text-muted)" : "#fff")
+                  (e.currentTarget.style.color = solid ? "var(--text-muted)" : "#fff")
                 }
               >
                 {label}
@@ -74,8 +81,8 @@ function Header() {
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 padding: "0.55rem 1.4rem",
-                border: `1px solid ${scrolled ? "var(--ember)" : "rgba(255,255,255,0.6)"}`,
-                color: scrolled ? "var(--ember)" : "#fff",
+                border: `1px solid ${solid ? "var(--ember)" : "rgba(255,255,255,0.6)"}`,
+                color: solid ? "var(--ember)" : "#fff",
                 background: "transparent",
                 cursor: "pointer",
                 borderRadius: "2px",
@@ -89,8 +96,8 @@ function Header() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = scrolled ? "var(--ember)" : "#fff";
-                e.currentTarget.style.borderColor = scrolled ? "var(--ember)" : "rgba(255,255,255,0.6)";
+                e.currentTarget.style.color = solid ? "var(--ember)" : "#fff";
+                e.currentTarget.style.borderColor = solid ? "var(--ember)" : "rgba(255,255,255,0.6)";
               }}
             >
               Browse Cabins
@@ -102,7 +109,7 @@ function Header() {
           <button
             onClick={() => setToggle((p) => !p)}
             style={{
-              color: scrolled ? "var(--text)" : "#fff",
+              color: solid ? "var(--text)" : "#fff",
               fontSize: "0.7rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
