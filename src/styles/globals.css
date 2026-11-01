@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #8a5a35;
+  --color-primary: #8b2f2a;
   --color-secondary: #9bb168;
   --color-ink: #332f2a;
   --color-cream: #f7f4ef;
@@ -9,6 +9,10 @@
 }
 
 :root {
+  /* Outfit has no italic cut, see font-synthesis-style on body */
+  --font-display: var(--font-outfit), sans-serif;
+  --font-body: var(--font-outfit), sans-serif;
+
   /* Hero / dark overlay colors */
   --forest-void: oklch(16% 0.018 135);
   --forest-deep: oklch(22% 0.032 135);
@@ -26,8 +30,9 @@
   --text-muted:oklch(58.5% 0.022 72);
 
   /* Accents (shared) */
-  --ember:       oklch(57% 0.118 62);
-  --ember-light: oklch(67% 0.12 62);
+  --ember:       oklch(46% 0.125 29);
+  --ember-hover: oklch(40% 0.115 29);
+  --ember-light: oklch(76% 0.09 32);
   --sage:        oklch(49% 0.07 132);
 }
 
@@ -39,6 +44,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  font-synthesis-style: none;
 }
 
 a,

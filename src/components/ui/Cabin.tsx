@@ -165,7 +165,7 @@ function Cabin({ cabin }: { cabin: CabinType }) {
                 fontWeight: 600,
                 transition: "background 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--ember-light)")}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--ember-hover)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "var(--ember)")}
             >
               Book

@@ -782,7 +782,7 @@ export default function AboutPage() {
                 transition: "background 0.3s, color 0.3s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--ember-light)";
+                e.currentTarget.style.background = "var(--ember-hover)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "var(--ember)";

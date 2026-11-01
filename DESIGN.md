@@ -17,16 +17,18 @@ The palette is restrained with one warm accent. Existing tokens should remain re
 - `--text-mid`: weathered bark, used for secondary headings.
 - `--text-muted`: warm grey, used for notes and metadata.
 - `--forest-void`, `--forest-deep`, `--forest-mid`: dark forest photo overlays and footer/hero moments.
-- `--ember`: dry-fire accent for labels, primary emphasis, and restrained calls to action.
+- `--ember`: Falu red accent for labels, primary emphasis, and restrained calls to action on light surfaces.
+- `--ember-hover`: darker Falu red, the hover state for filled `--ember` buttons with white text.
+- `--ember-light`: pale Falu red for accents on dark surfaces and photos. Never use `--ember` there.
 - `--sage`: secondary natural accent, used sparingly for calm supporting details.
 
 Do not use decorative gradient text, green eco badges, or high-chroma leaf greens. Dark sections must stay readable and should be image-led rather than dark for its own sake.
 
 ## Typography
 
-The current project uses `Cormorant Garamond` for display and `DM Sans` for body text. This combination gives the site a slow editorial tone and should be handled carefully so it does not drift into generic luxury magazine styling.
+The whole site uses `Outfit`. Hierarchy comes from size, weight and spacing rather than from a second typeface. Outfit has no italic cut, so `font-synthesis-style: none` is set on `body` and `<em>` must not rely on slanted type for emphasis.
 
-- Use `var(--font-display)` for major emotional headings, cabin names, and short italic phrases.
+- Use `var(--font-display)` for major emotional headings and cabin names.
 - Use `var(--font-body)` for navigation, labels, body copy, metadata, and controls.
 - Keep body copy around 65 to 75 characters per line.
 - Use fluid `clamp()` display sizes with clear contrast between heading levels.

@@ -52,9 +52,9 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
 
         {/* Stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem", marginBottom: "3rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "clamp(0.5rem,2vw,1rem)", marginBottom: "3rem" }}>
           {[{ label: "Bedrooms", value: cabin.bedrooms }, { label: "Max Guests", value: cabin.maxGuests }, { label: "Rating", value: `★ ${cabin.rating}` }].map(({ label, value }) => (
-            <div key={label} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", padding: "1.5rem", textAlign: "center", borderRadius: "4px" }}>
+            <div key={label} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", padding: "1.5rem clamp(0.5rem,2vw,1.5rem)", textAlign: "center", borderRadius: "4px" }}>
               <p style={{ color: "var(--ember)", fontSize: "1.5rem", fontFamily: "var(--font-display)", fontWeight: 400, marginBottom: "0.35rem" }}>{value}</p>
               <p style={{ color: "var(--text-muted)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>{label}</p>
             </div>
@@ -78,7 +78,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
         {cabin.available ? (
           <button
             style={{ padding: "1rem 3.5rem", fontSize: "0.75rem", letterSpacing: "0.2em", textTransform: "uppercase", background: "var(--ember)", color: "#fff", border: "none", borderRadius: "2px", cursor: "pointer", fontWeight: 600, transition: "background 0.3s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "var(--ember-light)")}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "var(--ember-hover)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--ember)")}
           >
             Reserve This Cabin

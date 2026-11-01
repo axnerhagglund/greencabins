@@ -35,7 +35,7 @@ function Header() {
               color: scrolled ? "var(--text)" : "#ffffff",
             }}
           >
-            Green<span style={{ color: "var(--ember)" }}>Cabins</span>
+            Green<span style={{ color: scrolled ? "var(--ember)" : "var(--ember-light)" }}>Cabins</span>
           </span>
         </Link>
 
@@ -50,7 +50,7 @@ function Header() {
                 key={label}
                 href={href}
                 style={{
-                  color: scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)",
+                  color: scrolled ? "var(--text-muted)" : "#fff",
                   fontSize: "0.8rem",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
@@ -61,7 +61,7 @@ function Header() {
                   (e.currentTarget.style.color = scrolled ? "var(--text)" : "#fff")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.75)")
+                  (e.currentTarget.style.color = scrolled ? "var(--text-muted)" : "#fff")
                 }
               >
                 {label}

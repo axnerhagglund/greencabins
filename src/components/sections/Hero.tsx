@@ -44,12 +44,12 @@ function Hero() {
         ))}
       </div>
 
-      {/* Bottom-only wash so the copy stays legible without darkening the whole image */}
+      {/* Top, left and bottom washes keep the header and copy legible on every slide */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, transparent 48%, color-mix(in oklch, var(--forest-void) 38%, transparent) 78%, color-mix(in oklch, var(--forest-void) 76%, transparent) 100%)",
+            "linear-gradient(to bottom, color-mix(in oklch, var(--forest-void) 72%, transparent) 0, color-mix(in oklch, var(--forest-void) 52%, transparent) 64px, transparent 180px), linear-gradient(to right, color-mix(in oklch, var(--forest-void) 60%, transparent) 0%, color-mix(in oklch, var(--forest-void) 50%, transparent) 40%, transparent 78%), linear-gradient(to bottom, transparent 28%, color-mix(in oklch, var(--forest-void) 55%, transparent) 62%, color-mix(in oklch, var(--forest-void) 80%, transparent) 100%)",
         }}
       />
 
@@ -58,18 +58,11 @@ function Hero() {
         className="relative h-full flex flex-col justify-end pb-20 px-8"
         style={{ maxWidth: "1280px", margin: "0 auto" }}
       >
-        <p
-          className="animate-fade-up text-xs uppercase tracking-widest mb-5"
-          style={{ color: "var(--ember)", letterSpacing: "0.3em" }}
-        >
-          Swedish Forest Retreats
-        </p>
-
         <h1
           className="animate-fade-up-d1 leading-none mb-6"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(3.5rem, 9vw, 8rem)",
+            fontSize: "clamp(3rem, min(9vw, 14vh), 7rem)",
             fontWeight: 300,
             color: "oklch(97% 0.01 82)",
             textShadow: "0 2px 24px rgba(0,0,0,0.5)",
@@ -82,7 +75,7 @@ function Hero() {
 
         <p
           className="animate-fade-up-d2 text-lg leading-relaxed mb-10"
-          style={{ color: "oklch(82% 0.04 128)", maxWidth: "420px" }}
+          style={{ color: "oklch(95% 0.012 100)", maxWidth: "420px", textShadow: "0 1px 12px rgba(0,0,0,0.45)" }}
         >
           Handpicked cabin retreats in the Swedish wilderness.
           Silence, stars, and the sound of running water.
