@@ -156,7 +156,7 @@ export default function AboutSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
             gap: "1px",
             background: "var(--border)",
           }}
@@ -166,7 +166,7 @@ export default function AboutSection() {
               key={label}
               style={{
                 background: "var(--bg-subtle)",
-                padding: "2rem 2.5rem",
+                padding: "2rem clamp(0.75rem, 3vw, 2.5rem)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.4rem",
@@ -175,7 +175,7 @@ export default function AboutSection() {
               <p
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(2.2rem, 4vw, 3.5rem)",
+                  fontSize: "clamp(1.75rem, 4vw, 3.5rem)",
                   fontWeight: 300,
                   color: "var(--text)",
                   lineHeight: 1,

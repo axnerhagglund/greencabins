@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "@/styles/globals.css";
 import { client } from "@/config/client";
 import Header from "@/components/layout/Header";
@@ -7,18 +7,9 @@ import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
 import DataProvider from "@/components/ui/DataProvider";
 
-const display = Cormorant_Garamond({
-  variable: "--font-display",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const body = DM_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -52,9 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`h-full ${outfit.variable}`}>
       <body
-        className={`min-h-full flex flex-col ${display.variable} ${body.variable}`}
+        className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         <DataProvider>

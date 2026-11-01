@@ -5,7 +5,7 @@ export const client = {
   favicon: "/assets/favicon.ico",
 
   colors: {
-    primary: "#8a5a35",
+    primary: "#8b2f2a",
     secondary: "#9bb168",
     background: "#f7f4ef",
     text: "#332f2a",
